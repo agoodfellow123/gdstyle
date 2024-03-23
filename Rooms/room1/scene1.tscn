@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bntv4rjy64w6h"]
+
+[ext_resource type="Script" path="res://Rooms/room1/scene1.gd" id="1_i1be4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nw8na"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lpa86"]
+
+[node name="GameText" type="RichTextLabel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+focus_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nw8na")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lpa86")
+bbcode_enabled = true
+meta_underlined = false
+hint_underlined = false
+selection_enabled = true
+script = ExtResource("1_i1be4")
+
+[connection signal="meta_clicked" from="." to="." method="_on_meta_clicked"]
+[connection signal="ready" from="." to="." method="_on_ready"]

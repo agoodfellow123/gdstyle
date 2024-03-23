@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://btwksx0wbthqb"]
+
+[ext_resource type="Script" path="res://start_game.gd" id="1_ddi0j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_807t2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_36wmp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s7v2k"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -187.0
+offset_right = 187.0
+offset_bottom = 648.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_807t2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -89.0
+offset_right = 62.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="NewSes" type="Button" parent="Menu panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_36wmp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s7v2k")
+text = "New Game"
+flat = true
+script = ExtResource("1_ddi0j")
+
+[connection signal="pressed" from="Menu panel/VBoxContainer/VBoxContainer/NewSes" to="Menu panel/VBoxContainer/VBoxContainer/NewSes" method="_on_pressed"]

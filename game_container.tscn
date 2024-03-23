@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://cayabn0jrf6im"]
+
+[ext_resource type="Script" path="res://game_container.gd" id="1_6ap8t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4swhb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m7vbc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fvor0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_02tcn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hkhsn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nf7of"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ddha8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ut6sp"]
+
+[node name="GameContainer" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4swhb")
+script = ExtResource("1_6ap8t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="GameOutput" type="Label" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+text = "As you wake up from the coffin you were rightfully sleeping in your senses slowly started to come back to you.
+You slowly started to hear chants from the fanatics who are surrounding you."
+autowrap_mode = 2
+
+[node name="RiseBtn" type="Button" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.309804, 0.439216, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.309804, 0.439216, 1, 1)
+theme_override_colors/font_hover_color = Color(0.177969, 0.137222, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m7vbc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fvor0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_02tcn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hkhsn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nf7of")
+text = "Rise Up"
+flat = true
+
+[node name="UserUsed" type="Label" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.724643, 0.724643, 0.724643, 1)
+
+[node name="RichGameOutput" type="RichTextLabel" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+meta_underlined = false
+hint_underlined = false
+
+[node name="History" type="RichTextLabel" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+focus_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ddha8")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ut6sp")
+bbcode_enabled = true
+fit_content = true
+selection_enabled = true
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="pressed" from="VBoxContainer/RiseBtn" to="." method="_on_rise_btn_pressed"]
+[connection signal="meta_clicked" from="VBoxContainer/RichGameOutput" to="." method="_on_rich_game_output_meta_clicked"]
